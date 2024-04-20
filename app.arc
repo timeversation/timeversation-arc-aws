@@ -4,6 +4,7 @@ timeversation-arc-aws
 @http
 get /
 get /api
+post /auth
 
 @ws
 walk-action
@@ -11,7 +12,7 @@ walk-action
 @aws
 region us-west-2
 profile personal
-runtime nodejs18.x
+runtime nodejs20.x
 
 @static
 fingerprint true

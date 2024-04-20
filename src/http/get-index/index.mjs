@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-let ENVs = {
+let EnvVars = {
   testing: {
     ARC_ENV: process.env.ARC_ENV,
     rest: "http://localhost:3333",
@@ -32,7 +32,7 @@ export async function handler(req) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yo</title>
+  <title>YoYoYoYoYo</title>
   <style>
      * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; }  
   </style>
@@ -48,14 +48,12 @@ export async function handler(req) {
   </div>
   <script type="module">
     window.ARC_ENV = ${JSON.stringify(process.env.ARC_ENV, null, 2)}
-    window.BACKEND_RESOURCES = ${JSON.stringify(ENVs[process.env.ARC_ENV], null, 2)}
+    window.BACKEND_RESOURCES = ${JSON.stringify(EnvVars[process.env.ARC_ENV], null, 2)}
     // localhost development
-    if (process.env.ARC_ENV === 'testing') {
+    if (window.ARC_ENV === 'testing') {
       window.BACKEND_RESOURCES.rest = window.location.origin
       window.BACKEND_RESOURCES.socket = "ws://" + window.location.host 
     }
-
-    console.log(window.BACKEND_RESOURCES)
   </script>
    <script type="module" src="${arc.static('build/main.module.js')}"></script>
   </body>

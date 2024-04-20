@@ -13,8 +13,14 @@ socket.onopen = function (e) {
     })
 }
 
-fetch(window.BACKEND_RESOURCES.rest + '/api', {
-    method: 'GET'
+
+fetch(window.BACKEND_RESOURCES.rest + '/auth', {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ client: 'source from desktop' })
 }).then(r => {
     return r.json()
 }).then(v => {
