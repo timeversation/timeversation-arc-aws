@@ -4,6 +4,7 @@
   "license": "MIT",
   "description": "Timeversation",
   "scripts": {
+    "deploy:all": "npm run deploy:staging; npm run deploy:production",
     "database": "dynalite --port 5001 --path ./mydb",
     "sandbox": "ARC_DB_EXTERNAL=true ARC_TABLES_PORT=5001 npx arc sandbox",
     "start": "npx sandbox",

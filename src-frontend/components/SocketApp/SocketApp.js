@@ -12,8 +12,10 @@ export function SocketApp() {
         }
 
         socketinst.onmessage = function ({ data: rawJSON }) {
-            let data = JSON.parse(rawJSON)
-            console.log(data)
+            let payload = JSON.parse(rawJSON)
+            let action = payload.action
+            let data = payload.data
+            console.log(action, data)
         }
 
         setSocket(socketinst)
