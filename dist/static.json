@@ -1,11 +1,4 @@
 {
-  "build/main.module.js": "build/main.module-283f1440b1.js",
-  "build/static/favicon_io/about.txt": "build/static/favicon_io/about-c25ae7e2d2.txt",
-  "build/static/favicon_io/android-chrome-192x192.png": "build/static/favicon_io/android-chrome-192x192-4b3b94067e.png",
-  "build/static/favicon_io/android-chrome-512x512.png": "build/static/favicon_io/android-chrome-512x512-da038e9139.png",
-  "build/static/favicon_io/apple-touch-icon.png": "build/static/favicon_io/apple-touch-icon-3b3ecdbfe8.png",
-  "build/static/favicon_io/favicon-16x16.png": "build/static/favicon_io/favicon-16x16-283d519af7.png",
-  "build/static/favicon_io/favicon-32x32.png": "build/static/favicon_io/favicon-32x32-3e16af1d3d.png",
-  "build/static/favicon_io/favicon.ico": "build/static/favicon_io/favicon-a46bba466a.ico",
-  "build/static/favicon_io/site.webmanifest": "build/static/favicon_io/site-7904af7cb4.webmanifest"
+  "build/main.module.js": "build/main.module-9a73aad4c2.js",
+  "build/static/favicon_io/favicon.ico": "build/static/favicon_io/favicon-a46bba466a.ico"
 }

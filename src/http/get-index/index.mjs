@@ -49,9 +49,12 @@ export async function handler(req) {
   <script type="module">
     window.ARC_ENV = ${JSON.stringify(process.env.ARC_ENV, null, 2)}
     window.BACKEND_RESOURCES = ${JSON.stringify(ENVs[process.env.ARC_ENV], null, 2)}
-    window.BACKEND_RESOURCES.rest = window.location.origin
-    window.BACKEND_RESOURCES.socket = "ws://" + window.location.host 
-    
+    // localhost development
+    if (process.env.ARC_ENV === 'testing') {
+      window.BACKEND_RESOURCES.rest = window.location.origin
+      window.BACKEND_RESOURCES.socket = "ws://" + window.location.host 
+    }
+
     console.log(window.BACKEND_RESOURCES)
   </script>
    <script type="module" src="${arc.static('build/main.module.js')}"></script>

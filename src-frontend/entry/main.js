@@ -13,7 +13,7 @@ socket.onopen = function (e) {
     })
 }
 
-fetch('/api', {
+fetch(window.BACKEND_RESOURCES.rest + '/api', {
     method: 'GET'
 }).then(r => {
     return r.json()
