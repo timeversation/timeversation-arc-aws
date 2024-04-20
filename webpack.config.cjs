@@ -14,9 +14,9 @@ module.exports = {
         outputModule: true,
     },
     output: {
-        chunkFormat: 'module',
-        chunkFilename: '[hash].[id].js',
-        asyncChunks: true,
+        // chunkFormat: 'module',
+        // chunkFilename: '[hash].[id].js',
+        // asyncChunks: true,
         clean: true,
         library: {
             type: 'module',

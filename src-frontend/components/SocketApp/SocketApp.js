@@ -1,30 +1,13 @@
 import React, { useEffect } from "react"
-import ReconnectingWebSocket from 'reconnecting-websocket'
+import { useSocket } from "./useSocket"
+import { useEventFromSocket } from "./useEventFromSocket"
 
 export function SocketApp() {
-    let [socket, setSocket] = React.useState(null)
-    useEffect(() => {
-        // This is a JavaScript module
-        let socketinst = new ReconnectingWebSocket(window.BACKEND_RESOURCES.socket)
-        socketinst.onopen = function (e) {
-            console.log('[open] Connection established')
-            console.log('Sending to server')
-        }
+    let { socket, ready } = useSocket()
+    let value = useEventFromSocket({ eventName: 'yohappy' })
 
-        socketinst.onmessage = function ({ data: rawJSON }) {
-            let payload = JSON.parse(rawJSON)
-            let action = payload.action
-            let data = payload.data
-            console.log(action, data)
-        }
-
-        setSocket(socketinst)
-
-        return () => {
-            socketinst.close()
-        }
-    }, [])
     return <>
+        <pre>{JSON.stringify(value)}</pre>
         <button className="bg-gray-200 p-3 px-5 mr-3" onClick={() => {
             fetch(window.BACKEND_RESOURCES.rest + '/auth', {
                 method: 'POST',
