@@ -1,6 +1,6 @@
 // learn more about HTTP functions here: https://arc.codes/http
 export async function handler(req) {
-  let data = req.body
+  let data = JSON.parse(req.body)
   console.log(data)
 
   return {
