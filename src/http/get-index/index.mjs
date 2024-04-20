@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-let EnvVars = {
+let EnvProfiles = {
   testing: {
     ARC_ENV: process.env.ARC_ENV,
     rest: "http://localhost:3333",
@@ -18,6 +18,8 @@ let EnvVars = {
   }
 }
 
+const CURRENT_ARC_ENV = EnvProfiles[process.env.ARC_ENV]
+
 // learn more about HTTP functions here: https://arc.codes/http
 export async function handler(req) {
   return {
@@ -32,23 +34,17 @@ export async function handler(req) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>YoYoYoYoYo</title>
+  <title>Timeversation</title>
   <style>
      * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; }  
   </style>
-  <link rel="icon" type="image/x-icon" href="${arc.static('build/static/favicon_io/favicon.ico')}">
+  <link rel="icon" type="image/x-icon" href="${arc.static('favicon.ico')}">
 </head>
-<body class="padding-32">
-  <div class="max-width-320">
-    <div class="margin-left-8">
-      <button onclick="window.dispatchEvent(new CustomEvent('falala', { detail: {yo:123} }))">Falala-Yo</button>
-      <pre>
-      </pre>
-    </div>
-  </div>
+<body class="">
+  <div id="root"></div>
   <script type="module">
     window.ARC_ENV = ${JSON.stringify(process.env.ARC_ENV, null, 2)}
-    window.BACKEND_RESOURCES = ${JSON.stringify(EnvVars[process.env.ARC_ENV], null, 2)}
+    window.BACKEND_RESOURCES = ${JSON.stringify(CURRENT_ARC_ENV, null, 2)}
     // localhost development
     if (window.ARC_ENV === 'testing') {
       window.BACKEND_RESOURCES.rest = window.location.origin

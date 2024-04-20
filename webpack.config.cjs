@@ -1,9 +1,11 @@
 const path = require('path')
-const CopyPlugin = require("copy-webpack-plugin");
+// const CopyPlugin = require("copy-webpack-plugin");
+// const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 module.exports = {
+    // mode: "production",
     entry: {
-        main: path.resolve(__dirname, './src-frontend/entry/main.js'),
+        main: path.resolve(__dirname, './src-frontend/entry/main.jsx'),
     },
     resolve: {
         extensions: ['.mjs', '.js', '.jsx'],
@@ -12,6 +14,9 @@ module.exports = {
         outputModule: true,
     },
     output: {
+        // chunkFormat: 'module',
+        // chunkFilename: '[hash].[id].js',
+        // asyncChunks: true,
         clean: true,
         library: {
             type: 'module',
@@ -21,6 +26,7 @@ module.exports = {
     },
     module: {
         rules: [
+
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
@@ -31,6 +37,13 @@ module.exports = {
                     },
                 },
             },
+
+            {
+                test: /\.css$/i,
+                include: path.resolve(__dirname, 'src-frontend'),
+                use: ['style-loader', 'css-loader', 'postcss-loader'],
+            },
+
             {
                 test: /\.worker\.js$/,
                 use: {
@@ -40,18 +53,25 @@ module.exports = {
                     },
                 },
             },
+
             {
                 test: /\.(glsl|vs|fs|vert|frag)$/,
                 exclude: /node_modules/,
                 use: ['raw-loader', 'glslify-loader'],
-            }
+            },
         ],
     },
     plugins: [
-        new CopyPlugin({
-            patterns: [
-                { from: "src-frontend/static", to: "static" },
-            ],
-        }),
+        // new WebpackManifestPlugin({
+        //     basePath: path.join(__dirname, 'dist'),
+        //     fileName: 'manifest.json'
+        // })
+        // new CopyPlugin({
+        //     patterns: [
+        //         { from: "src-frontend/static", to: "static" },
+        //     ],
+        // }),
     ],
 }
+
+//

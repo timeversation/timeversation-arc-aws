@@ -4,13 +4,15 @@
   "license": "MIT",
   "description": "Timeversation",
   "scripts": {
+    "database": "dynalite --port 5001 --path ./mydb",
+    "sandbox": "ARC_DB_EXTERNAL=true ARC_TABLES_PORT=5001 npx arc sandbox",
     "start": "npx sandbox",
     "deploy:staging": "npm run build:fe; arc init; arc hydrate --update --verbose; arc deploy --staging --prune",
     "deploy:production": "npm run build:fe; arc init; arc hydrate --update --verbose; arc deploy --production --prune",
-    "dev": "concurrently \"npm run dev:fe\" \"npm run dev:be\" --kill-others",
+    "dev": "concurrently \"npm run database\" \"npm run dev:fe\" \"npm run dev:be\" --kill-others",
     "build:fe": "webpack --config ./webpack.config.cjs --mode production",
     "dev:fe": "webpack --watch --config ./webpack.config.cjs --mode development",
-    "dev:be": "arc init; arc hydrate --update --verbose; arc sandbox"
+    "dev:be": "arc init; arc hydrate --update --verbose; npm run sandbox"
   },
   "devDependencies": {
     "@architect/architect": "^11.0.10",
@@ -26,6 +28,18 @@
     "worker-loader": "^3.0.8"
   },
   "dependencies": {
-    "@architect/functions": "^8.1.0"
+    "@architect/functions": "^8.1.0",
+    "@babel/core": "^7.24.4",
+    "css-loader": "^7.1.1",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^9.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "reconnecting-websocket": "^4.4.0",
+    "style-loader": "^4.0.0",
+    "style-loaders": "^1.0.0",
+    "tailwindcss": "^3.4.3",
+    "webpack-manifest-plugin": "^5.0.0",
+    "webpack-nano": "^1.1.1"
   }
 }

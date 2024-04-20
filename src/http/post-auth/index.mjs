@@ -1,7 +1,8 @@
 // learn more about HTTP functions here: https://arc.codes/http
 export async function handler(req) {
   let data = JSON.parse(req.body)
-  console.log(data)
+
+  console.log(data) //
 
   return {
     cors: true,

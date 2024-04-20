@@ -7,6 +7,7 @@ get /api
 post /auth
 
 @ws
+auth-action
 walk-action
 
 @aws
@@ -15,7 +16,7 @@ profile personal
 runtime nodejs20.x
 
 @static
-fingerprint true
+fingerprint false
 folder ./dist
 ignore
   .tar.gz
@@ -23,3 +24,7 @@ ignore
   user
 prune true
 spa true
+
+@tables
+connections
+  connectionId *String
