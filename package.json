@@ -1,0 +1,16 @@
+{
+  "name": "timeversation-arc-aws",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Timeversation",
+  "scripts": {
+    "start": "npx sandbox",
+    "dev": "arc init; arc hydrate --update --verbose; arc sandbox"
+  },
+  "devDependencies": {
+    "@architect/architect": "^11.0.10"
+  },
+  "dependencies": {
+    "@architect/functions": "^8.1.0"
+  }
+}
