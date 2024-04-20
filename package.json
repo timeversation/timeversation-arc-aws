@@ -5,10 +5,25 @@
   "description": "Timeversation",
   "scripts": {
     "start": "npx sandbox",
-    "dev": "arc init; arc hydrate --update --verbose; arc sandbox"
+    "deploy:staging": "npm run build:fe; arc init; arc hydrate --update --verbose; arc deploy --staging --prune",
+    "deploy:production": "npm run build:fe; arc init; arc hydrate --update --verbose; arc deploy --production --prune",
+    "dev": "concurrently \"npm run dev:fe\" \"npm run dev:be\" --kill-others",
+    "build:fe": "webpack --config ./webpack.config.cjs --mode production",
+    "dev:fe": "webpack --watch --config ./webpack.config.cjs --mode development",
+    "dev:be": "arc init; arc hydrate --update --verbose; arc sandbox"
   },
   "devDependencies": {
-    "@architect/architect": "^11.0.10"
+    "@architect/architect": "^11.0.10",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-react": "^7.24.1",
+    "babel-loader": "^9.1.3",
+    "concurrently": "^8.2.2",
+    "copy-webpack-plugin": "^12.0.2",
+    "glslify-loader": "^2.0.0",
+    "raw-loader": "^4.0.2",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "worker-loader": "^3.0.8"
   },
   "dependencies": {
     "@architect/functions": "^8.1.0"

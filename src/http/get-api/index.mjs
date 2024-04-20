@@ -9,4 +9,3 @@ export async function handler(req) {
     body: JSON.stringify({ message: 'Hello world' })
   }
 }
-
