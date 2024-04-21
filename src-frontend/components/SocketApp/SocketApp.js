@@ -32,7 +32,6 @@ export function SocketApp() {
                     auth: 123
                 }
             }))
-
         }}>Auth Action</button>
 
         <button className="bg-gray-200 p-3 px-5 mr-3" onClick={() => {
