@@ -1,5 +1,6 @@
 import arc from '@architect/functions'
 // let arc = require('@architect/functions')
+
 let send = async ({ data, action, connectionId }) => {
   await arc.ws.send({
     id: connectionId,
@@ -22,7 +23,6 @@ let send = async ({ data, action, connectionId }) => {
   })
 }
 
-// learn more about WebSocket functions here: https://arc.codes/ws
 export async function handler(req) {
   let payload = JSON.parse(req.body, null, 2)
   console.log(payload)

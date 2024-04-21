@@ -9,6 +9,7 @@ export function SocketApp() {
     let refUsername = useRef()
 
     return <>
+
         {/* <button className="bg-gray-200 p-3 px-5 mr-3" onClick={() => {
             fetch(window.BACKEND_RESOURCES.rest + '/auth', {
                 method: 'POST',
@@ -23,7 +24,6 @@ export function SocketApp() {
                 console.log(v)
             })
         }}>Autnentication</button> */}
-
 
         <button className="bg-gray-200 p-3 px-5 mr-3" onClick={() => {
             socket.send(JSON.stringify({
@@ -45,6 +45,9 @@ export function SocketApp() {
 
             //
         }}>Walk Action</button>
+
+        <a href={`timeversation://happy`} className="bg-gray-200 p-3 px-5 mr-3" >testimony://happy</a>
+
 
         Ready: {socket ? 'true' : 'false'}
 

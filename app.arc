@@ -25,6 +25,12 @@ ignore
 prune true
 spa true
 
+@shared
+src src/shared
+
 @tables
 connections
   connectionId *String
+
+user 
+  userId *String
