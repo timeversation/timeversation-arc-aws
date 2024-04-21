@@ -6,7 +6,7 @@ export async function handler(req) {
 
   let tables = await arc.tables()
 
-  await tables.connections.put({
+  await tables.connections.delete({
     connectionId: req.requestContext.connectionId
   }).then(r => {
     console.log('remove connection', r)

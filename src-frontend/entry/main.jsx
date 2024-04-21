@@ -21,7 +21,7 @@ let SocketApp = lazy(() => import('../components/SocketApp/SocketApp').then(r =>
 function MyApp() {
     return <div className="">
         <div>
-            thank u Jesus amen!
+            Thank u Jesus amen!
         </div>
         <SocketApp></SocketApp>
     </div>

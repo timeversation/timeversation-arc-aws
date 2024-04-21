@@ -1,14 +1,15 @@
-import React, { useEffect } from "react"
+import React, { useRef } from "react"
 import { useSocket } from "./useSocket"
 import { useEventFromSocket } from "./useEventFromSocket"
+import { AuthGUI } from "./AuthGUI"
 
 export function SocketApp() {
-    let { socket, ready } = useSocket()
-    let value = useEventFromSocket({ eventName: 'yohappy' })
+    let { socket } = useSocket()
+    let playerWalk = useEventFromSocket({ eventName: 'player-walk' })
+    let refUsername = useRef()
 
     return <>
-        <pre>{JSON.stringify(value)}</pre>
-        <button className="bg-gray-200 p-3 px-5 mr-3" onClick={() => {
+        {/* <button className="bg-gray-200 p-3 px-5 mr-3" onClick={() => {
             fetch(window.BACKEND_RESOURCES.rest + '/auth', {
                 method: 'POST',
                 mode: 'cors',
@@ -21,11 +22,20 @@ export function SocketApp() {
             }).then(v => {
                 console.log(v)
             })
-        }}>Autnentication</button>
+        }}>Autnentication</button> */}
+
 
         <button className="bg-gray-200 p-3 px-5 mr-3" onClick={() => {
-            //
+            socket.send(JSON.stringify({
+                action: 'auth-action',
+                data: {
+                    auth: 123
+                }
+            }))
 
+        }}>Auth Action</button>
+
+        <button className="bg-gray-200 p-3 px-5 mr-3" onClick={() => {
             socket.send(JSON.stringify({
                 action: 'walk-action',
                 data: {
@@ -35,5 +45,11 @@ export function SocketApp() {
 
             //
         }}>Walk Action</button>
+
+        Ready: {socket ? 'true' : 'false'}
+
+        <AuthGUI socket={socket}></AuthGUI>
+
+        <pre>{JSON.stringify(playerWalk)}</pre>
     </>
 }

@@ -12,7 +12,7 @@ let send = async ({ data, action, connectionId }) => {
 
     let tables = await arc.tables()
 
-    await tables.connections.put({
+    await tables.connections.delete({
       connectionId: connectionId
     }).then(r => {
       console.log('remove connection', r)
@@ -32,12 +32,12 @@ export async function handler(req) {
 
   send({
     connectionId: connectionId,
-    action: 'yohappy',
+    action: 'player-walk',
     data: {
-      happy: 'happy'
+      connectionId: connectionId,
+      fromServer: Math.random()
     }
   })
-
 
   return { statusCode: 200 }
 }

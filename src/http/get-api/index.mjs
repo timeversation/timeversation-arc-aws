@@ -6,6 +6,12 @@ export async function handler(req) {
       'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
       'content-type': 'application/json charset=utf8'
     },
-    body: JSON.stringify({ message: 'Hello world' })
+    body: JSON.stringify({
+      //
+
+      welcome: 'to the beginning of the future'
+
+      //
+    })
   }
 }

@@ -3,16 +3,15 @@ import React, { useEffect } from "react"
 
 export const useSocket = () => {
     let [socket, setSocket] = React.useState(null)
-    let [ready, setReady] = React.useState(false)
+    let [socketReady, setSocketReady] = React.useState(false)
     useEffect(() => {
-        // This is a JavaScript module
-        let socketinst = new ReconnectingWebSocket(window.BACKEND_RESOURCES.socket)
-        socketinst.onopen = function (e) {
+        let inst = new ReconnectingWebSocket(window.BACKEND_RESOURCES.socket)
+        inst.onopen = function (e) {
             console.log('[open] Connection established')
-            console.log('Sending to server')
+            setSocketReady(true)
         }
 
-        socketinst.onmessage = function ({ data: rawJSON }) {
+        inst.onmessage = function ({ data: rawJSON }) {
             let payload = JSON.parse(rawJSON)
             let action = payload.action
             let data = payload.data
@@ -20,19 +19,16 @@ export const useSocket = () => {
             window.dispatchEvent(new CustomEvent('socket:' + action, {
                 detail: data
             }))
-            // window.dispatchEvent(new CustomEvent('socket:*', {
-            //     detail: payload
-            // }))
-
-            // console.log(payload)
         }
 
-        setSocket(socketinst)
+        setSocket(inst)
 
         return () => {
-            socketinst.close()
+            inst.close()
         }
     }, [])
 
-    return { socket, ready }
+    return {
+        socket: socketReady ? socket : null,
+    }
 }
