@@ -20,11 +20,14 @@ let SocketApp = lazy(() => import('../components/SocketApp/SocketApp').then(r =>
 
 function MyApp() {
     return <div className="">
-        <div>
-            Thank u Jesus amen!
-        </div>
         <SocketApp></SocketApp>
     </div>
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<MyApp />);
+
+//
+
+//
+
+//

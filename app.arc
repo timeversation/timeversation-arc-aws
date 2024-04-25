@@ -12,7 +12,7 @@ walk-action
 
 @aws
 region us-west-2
-profile personal
+profile aws_timeverstaion
 runtime nodejs20.x
 
 @static

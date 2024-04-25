@@ -12,17 +12,16 @@ export async function handler(req) {
 
     let myTables = await arc.tables()
 
-    let hasUserInDB = await myTables.user.get({
-      userId: username,
+    let hasUser = await myTables.user.get({
+      userId: `${username || (Math.random() * 100000)}`,
     })
-      .then(r => {
-        return !!r
-      })
-      .catch((e) => {
+      .then((r) => {
+        return typeof r !== 'undefined'
+      }).catch(e => {
         return false
       })
 
-    let freeToUse = !hasUserInDB
+    let freeToUse = !!!hasUser
 
     return {
       cors: true,

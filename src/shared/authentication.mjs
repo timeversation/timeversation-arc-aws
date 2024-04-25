@@ -108,33 +108,34 @@ export const provideKeys = async () => {
     }
 
     return {
-        //
         namespaceKey,
         publicKey: JSON.parse(process.env.PUBLIC_KEY),
         privateKey: JSON.parse(process.env.PRIVATE_KEY)
     }
 }
 
-export const issueJWT = async ({ userID = 'unkownUserID' }) => {
+export const issueJWT = async ({ userID = 'unkownUserID', deviceID = 'urn:timeversation:audience' }) => {
     let keys = await provideKeys()
 
     const alg = 'RS256'
     const jwk = keys.privateKey
     const privateKey = await jose.importJWK(jwk, alg)
 
-    const jwt = await new jose.SignJWT({ 'urn:timeversation:claim': true })
+    const jwt = await new jose.SignJWT({
+        'urn:timeversation:claim': true
+    })
         .setProtectedHeader({ alg })
         .setIssuedAt()
         .setJti(userID)
         .setIssuer('urn:timeversation:issuer')
-        .setAudience('urn:timeversation:audience')
+        .setAudience(deviceID)
         .setExpirationTime('1year')
         .sign(privateKey)
 
-    // console.log(jwt)
-
     return jwt
 }
+
+//
 
 export const verifyJWT = async ({ jwt = '' }) => {
     let keys = await provideKeys()

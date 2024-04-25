@@ -29,6 +29,7 @@ export const useSocket = () => {
     }, [])
 
     return {
+        ready: socketReady,
         socket: socketReady ? socket : null,
     }
 }

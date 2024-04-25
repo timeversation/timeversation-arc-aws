@@ -8,16 +8,26 @@ let EnvProfiles = {
   },
   staging: {
     ARC_ENV: process.env.ARC_ENV,
-    rest: "https://act4stb1oi.execute-api.us-west-2.amazonaws.com",
-    socket: "wss:/k7m5twur93.execute-api.us-west-2.amazonaws.com/staging",
+    rest: "https://8rx21x1hfb.execute-api.us-west-2.amazonaws.com",
+    socket: "wss://b5rbwf4vui.execute-api.us-west-2.amazonaws.com/staging",
   },
   production: {
     ARC_ENV: process.env.ARC_ENV,
-    rest: "https://73k5bvags4.execute-api.us-west-2.amazonaws.com",
-    socket: "wss://oa58a0pqmb.execute-api.us-west-2.amazonaws.com/production",
+    rest: "https://gddxtip4tk.execute-api.us-west-2.amazonaws.com",
+    socket: "wss://i9c0ksiy26.execute-api.us-west-2.amazonaws.com/production",
   }
 }
+/*
 
+
+    HTTP: https://8rx21x1hfb.execute-api.us-west-2.amazonaws.com
+      WS: wss://b5rbwf4vui.execute-api.us-west-2.amazonaws.com/staging
+
+
+
+HTTP: https://gddxtip4tk.execute-api.us-west-2.amazonaws.com
+      WS: wss://i9c0ksiy26.execute-api.us-west-2.amazonaws.com/production
+*/
 //
 // AWS_SECRET_ACCESS_KEY
 // AWS_ACCESS_KEY_ID

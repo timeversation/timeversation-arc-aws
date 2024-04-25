@@ -10,7 +10,7 @@ export const useEventFromSocket = ({ eventName = 'yohappy' }) => {
         return () => {
             window.removeEventListener('socket:' + eventName, handler)
         }
-    }, [eventName])
+    }, [eventName, window])
 
     return eventValue
 }
