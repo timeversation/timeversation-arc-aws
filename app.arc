@@ -34,3 +34,6 @@ connections
 
 user 
   userId *String
+
+siteMetadata
+  metaDataId *String

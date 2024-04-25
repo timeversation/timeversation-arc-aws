@@ -18,6 +18,11 @@ let EnvProfiles = {
   }
 }
 
+//
+// AWS_SECRET_ACCESS_KEY
+// AWS_ACCESS_KEY_ID
+//
+
 const CURRENT_ARC_ENV = EnvProfiles[process.env.ARC_ENV]
 
 // learn more about HTTP functions here: https://arc.codes/http
