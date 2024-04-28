@@ -27,7 +27,6 @@ export async function handler(req) {
       cors: true,
       statusCode: 200,
       headers: {
-        cors: true,
         'access-control-allow-origin': '*',
         'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
         'content-type': 'application/json; charset=utf8'
@@ -57,7 +56,6 @@ export async function handler(req) {
 
     if (!freeToUse) {
       return {
-        cors: true,
         statusCode: 406,
         headers: {
           cors: true,
@@ -80,7 +78,6 @@ export async function handler(req) {
       cors: true,
       statusCode: 200,
       headers: {
-        cors: true,
         'access-control-allow-origin': '*',
         'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
         'content-type': 'application/json; charset=utf8'
@@ -108,7 +105,6 @@ export async function handler(req) {
 
     if (!usernameExist) {
       return {
-        cors: true,
         statusCode: 401,
         headers: {
           cors: true,
@@ -126,7 +122,6 @@ export async function handler(req) {
 
     if (!result) {
       return {
-        cors: true,
         statusCode: 406,
         headers: {
           cors: true,
@@ -163,7 +158,6 @@ export async function handler(req) {
       let verify = await Auth.verifyJWT({ jwt: jwt })
 
       return {
-        cors: true,
         statusCode: 200,
         headers: {
           'access-control-allow-origin': '*',
@@ -182,7 +176,6 @@ export async function handler(req) {
       }
 
       return {
-        cors: true,
         statusCode: 406,
         headers: {
           'access-control-allow-origin': '*',
