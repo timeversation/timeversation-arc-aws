@@ -1,4 +1,4 @@
-
+import arc from '@architect/functions'
 // import *  as Auth from '@architect/shared/authentication.mjs'
 
 // learn more about HTTP functions here: https://arc.codes/http
@@ -13,9 +13,8 @@ export async function handler(req) {
       'content-type': 'application/json charset=utf8'
     },
     body: JSON.stringify({
-      data: {
-        hi: 123
-      },
+      frontend: {
+      }
     })
   }
 }

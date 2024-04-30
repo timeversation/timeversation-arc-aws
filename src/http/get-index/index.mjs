@@ -19,7 +19,6 @@ let EnvProfiles = {
 }
 /*
 
-
     HTTP: https://8rx21x1hfb.execute-api.us-west-2.amazonaws.com
       WS: wss://b5rbwf4vui.execute-api.us-west-2.amazonaws.com/staging
 
@@ -52,7 +51,7 @@ export async function handler(req) {
   <title>Timeversation</title>
   <style>
      * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; }  
-  </style>
+  </style>s
   <link rel="icon" type="image/x-icon" href="${arc.static('favicon.ico')}">
 </head>
 <body class="">

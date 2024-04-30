@@ -24,6 +24,7 @@ ignore
   user
 prune true
 spa true
+cors true
 
 @shared
 src src/shared
@@ -37,3 +38,12 @@ user
 
 siteMetadata
   metaDataId *String
+
+avatar
+  avatarId *String
+
+robot
+  robotId *String
+
+place
+  placeId *String
